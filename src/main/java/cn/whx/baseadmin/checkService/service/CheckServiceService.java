@@ -1,5 +1,7 @@
 package cn.whx.baseadmin.checkService.service;
 
+import java.util.List;
+
 /**
  * @author haixin_wu
  * @description ${DESCRIPTION}
@@ -7,6 +9,6 @@ package cn.whx.baseadmin.checkService.service;
  */
 public interface CheckServiceService {
 
-
+    void service101(List<String> imeis);
 
 }

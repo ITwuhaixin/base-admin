@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,9 +39,7 @@ public class checkServiceController {
     public Result check(Service101Vo vo){
         String[] split = vo.getImeis().split("\\r\\n|\\n|\\r");
         if( !StringUtils.isEmpty(split) ){
-            for (String s : split) {
-                System.out.println(s);
-            }
+            checkServiceService.service101(Arrays.asList(split));
         }
 
         return Result.of(vo.getImeis());
