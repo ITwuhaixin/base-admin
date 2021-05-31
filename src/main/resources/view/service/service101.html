@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--解决idea thymeleaf 表达式模板报红波浪线-->
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- 引入公用部分 -->
+    <script th:replace="common/head::static"></script>
+    <!-- 样式 -->
+    <link th:href="@{/service/css/service101.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="layui-row layui-col-space15">
+    <div class="layui-col-md3">
+        <div class="layui-card">
+            <div class="layui-card-header">操作表单</div>
+            <div class="layui-card-body">
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <a class="layui-btn" onclick="submitCheck()">提交查询</a>
+                    </div>
+                </div>
+                <form id="userForm" class="layui-form layui-form-pane">
+                    <div class="layui-form-item">
+                            <textarea name="imeis" placeholder="imei or sn" class="layui-textarea" rows="25" cols="30"></textarea>
+                    </div>
+
+                    <!--&lt;!&ndash; 隐藏域 &ndash;&gt;-->
+                    <!--<input type="text" name="userId" hidden="hidden"/>-->
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- 树 -->
+    <div class="layui-col-md9">
+        <div class="layui-card">
+            <div class="layui-card-header">查询列表</div>
+            <div class="layui-card-body">
+                <!-- 表格主体 -->
+                <table class="layui-hide" id="userTable" lay-filter="test"></table>
+                <!-- 模板 -->
+                <script type="text/html" id="userTableToolbarDemo">
+                    <div class="layui-btn-container">
+                        <button class="layui-btn layui-btn-sm" lay-event="addData">新增<i class="layui-icon layui-icon-add-1"></i></button>
+                        <input type="text" id="queryByLoginName" name="queryByLoginName" autocomplete="off"
+                               placeholder="输入登陆名" class="layui-input layui-btn-sm">
+                        <button class="layui-btn layui-btn-sm" lay-event="query">查询<i class="layui-icon layui-icon-search"></i></button>
+                    </div>
+                </script>
+                <script type="text/html" id="userTableBarDemo">
+                    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑<i class="layui-icon layui-icon-edit"></i></a>
+                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除<i class="layui-icon layui-icon-close"></i></a>
+                </script>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<!-- js -->
+<script th:src="@{/service/js/serivce101.js}"></script>
+</html>
